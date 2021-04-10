@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Información del Usuario</h3>
+                </div>
+                <div class="card-body">
+                    <%= hidden_field(:usuarios, :id, :value => @registro.id) %>
+                    <div class="form-group">
+                        <label class="form-control-label" for="nombre">Correo</label>
+                        <%= text_field(:usuarios, :email, class: "form-control", id: "correo", value: @registro.email) %>
+                        <p class="text-danger"><%= @registro.errors[:email].first %></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="nombre">Contraseña</label>
+                        <%= password_field(:usuarios, :password, class: "form-control") %>
+                        <p class="text-danger"><%= @registro.errors[:password].first %></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="nombre">Usuario</label>
+                        <%= text_field(:usuarios, :usuario, class: "form-control", id: "nombre", value: @registro.usuario) %>
+                        <p class="text-danger"><%= @registro.errors[:usuario].first %></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="nombre">Telefono</label>
+                        <%= text_field(:usuarios, :telefono, class: "form-control", id: "telefono", value: @registro.telefono) %>
+                        <p class="text-danger"><%= @registro.errors[:telefono].first %></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="nombre">Rol</label>
+                        <%= select_tag "usuarios[rols_id]", options_from_collection_for_select(Rol.all, :id, :nombre, @registro.rols_id ),
+                            class: "form-control selectpicker", "data-live-search": "true" %>
+                        <p class="text-danger"><%= @registro.errors[:rols_id].first %></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="nombre">Estado</label>
+                        <%= select_tag "usuarios[activo]", options_for_select([["Activo", Usuario::ACTIVO], ["Inactivo", Usuario::INACTIVO]], "#{@registro.activo.to_i}"),
+                            class: "form-control selectpicker", "data-live-search": "true" %>
+                        <p class="text-danger"><%= @registro.errors[:rols_id].first %></p>
+                    </div>
+
+                    <div class="form-group">
+                      <%= recaptcha_tags %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

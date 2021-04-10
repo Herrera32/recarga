@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card-wrapper">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Información de la Recarga</h3>
+                </div>
+                <div class="card-body">
+                    <%= hidden_field(:recarga_saldo, :id, :value => @registro.id) %>
+                    <%= hidden_field(:recarga_saldo, :usuario_id, :value => current_usuario.id) %>
+                    <div class="form-group">
+                        <label class="form-control-label" for="telefono">Telefono</label>
+                        <%= text_field(:recarga_saldo, :telefono, class: "form-control", id: "telefono", value: @registro.telefono) %>
+                        <p class="text-danger"><%= @registro.errors[:telefono].first %></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="monto">Paquetes de Recargas</label>
+                        <%= select_tag "recarga_saldo[catalogo_recarga_id]", options_from_collection_for_select(CatalogoRecarga.all, :id, :monto, @registro.catalogo_recarga_id ),
+                            class: "form-control selectpicker", "data-live-search": "true" %>
+                        <p class="text-danger"><%= @registro.errors[:catalogo_recarga_id].first %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

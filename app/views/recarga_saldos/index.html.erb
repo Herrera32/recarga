@@ -1,0 +1,54 @@
+<% content_for :titulo_seccion do %>
+  Recarga de Saldos
+<% end %>
+
+<div class="col-lg-12 col-12">
+   <div class="row">
+      <%= render 'recarga_saldos/filtros' %>
+      <div class="col-lg-6 text-right">
+         <%= link_to "Crear recargas", new_recarga_saldo_path, class: "btn btn-lg btn-neutral" %>
+      </div>
+   </div>
+</div>
+
+<div class="container-fluid mt-3">
+   <div class="row">
+      <div class="col pl-0 pr-0">
+         <div class="card">
+            <div class="card-header">
+               <h3 class="mb-0">Recargas registradas</h3>
+            </div>
+            <div class="table-responsive">
+               <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                     <tr>
+                        <th class="sort"><%= sort_link(@coleccion, :fecha, "Fecha") %></th>
+                        <th class="sort"><%= sort_link(@coleccion, :usuario_id, "Usuario") %></th>
+                        <th class="sort"><%= sort_link(@coleccion, :telefono, "Numero") %></th>
+                        <th class="sort"><%= sort_link(@coleccion, :catalogo_recarga_id, "Operación") %></th>
+                        <th>Saldo Inicial</th>
+                        <th>Saldo Final</th>
+                     </tr>
+                  </thead>
+                  <tbody class="list">
+                    <% @registros.each do |recarga| %>
+                     <tr>
+                        <td><%= recarga.fecha %></td>
+                        <td><%= recarga.usuario.usuario %></td>
+                        <td><%= recarga.usuario.telefono %></td>
+                        <td><%= recarga.catalogo_recarga.nombre %></td>
+                        <td><%= recarga.saldo_inicial %></td>        
+                        <td><%= recarga.saldo_final%></td>        
+                     </tr>
+                    <% end %>
+                  </tbody>
+               </table>
+            </div>
+            <div class="card-footer py-4">
+             <%= paginate @registros %>
+             <%= page_entries_info @registros %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

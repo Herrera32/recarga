@@ -1,0 +1,17 @@
+- Catálogos:
+  - Items:
+    - Recargas:
+        Recurso: "Recarga de Saldos"
+        Ruta: "recarga_saldos_path"
+  - Ruta: "#navbar-tables"
+  - Icono: "ni ni-align-left-2 text-default"
+- Configuración:
+  - Items:
+    - Usuarios:
+        Recurso: "Usuario"
+        Ruta: "usuarios_path"
+    - Roles:
+        Recurso: "Roles"
+        Ruta: "roles_path"
+  - Ruta: "#navbar-users"
+  - Icono: "ni ni-settings-gear-65 text-default"

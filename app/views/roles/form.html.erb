@@ -1,0 +1,13 @@
+<% content_for :titulo_seccion do %>
+  Roles
+<% end %>
+
+<%= render "shared/flash", flash: flash %>
+<%= javascript_include_tag "rol" %>
+
+<%= render partial: 'roles/roles_formulario', layout: "layouts/formulario",
+    locals: {
+        registro: @registro,
+        url: @url
+    }
+%>
