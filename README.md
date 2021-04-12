@@ -1,24 +1,9 @@
 # README
+Version de Ruby 2.7.2
+Base de Datos Postgres
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para ejecutar el programa deben correrse las migraciones y los seeds
+rails db:drop; rails db:create; rails db:migrate; rails db:seed;
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
+En los db/seeds.rb linea 37 se encuantra el usuario para ingresar a la aplicacion una ves que el servidor este corriendo con rails s 
 * ...
